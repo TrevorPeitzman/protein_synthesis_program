@@ -17,6 +17,9 @@
       color: white;
       font-family: 'Ubuntu', sans-serif;
     }
+    .txt_in{
+      text-transform: uppercase;
+    }
     .text{
       text-align: center;
       color: white;
@@ -68,7 +71,7 @@
          }
      }
      function AtoU () {
-       var dnain = document.getElementsById("dna");
+       var dnain = document.getElementsById("dna").value.indexOf("A","C","T","G");
        var dna = dnain.value;
         if (dna.addEventListener){
           dna.addEventListener ("input", OnInput, false);
@@ -91,10 +94,10 @@
   <body>
     <p class="text">Enter DNA String Here: <br>(ONLY 'A' 'C' 'T' or 'G' will be recognized)</p>
     <!--<textarea id='textarea' placeholder="ATGCAGCT"></textarea>-->
-    <input name="DNA" type="text" id="dna" value="" placeholder="ACTG" size="50">
+    <input name="DNA" type="text" id="dna" class="txt_in" value="" placeholder="ACTG" size="50">
     <p class="text">Alternatively,<br>Enter RNA String Here: <br>(ONLY 'U' 'C' 'T' or 'G' will be recognized)</p>
     <!--<textarea id='textarea' placeholder="UTGCUGCT"></textarea>-->
-    <input name="RNA" type="text" id="rna" value="" placeholder="UCTG" size="50">
+    <input name="RNA" type="text" id="rna" class="txt_in"value="" placeholder="UCTG" size="50">
     <p class="text">Your Resulting Amino Acids Are:</p>
     <input type="submit" value="Synthesize!" class="btn" title="Fill in the blanks"><br>
     <input type="reset" value="Reset" class="btn" title="Fill in the blanks" >

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+
+  <style>
+  @import url(https://fonts.googleapis.com/css?family=Ubuntu);
+  //@import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
+    @font-face {
+      font-family: 'Ubuntu', sans-serif;
+      src: url(https://fonts.googleapis.com/css?family=Ubuntu);
+    }
+    div{
+      font-family: 'Ubuntu', sans-serif;
+    }
+    #textarea{
+      text-align: center;
+      background-color: blue;
+      color: white;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .text{
+      text-align: center;
+      color: white;
+      //font-family: 'Walter Turncoat', cursive;
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .btn{
+      color: blue;
+    }
+    h1{
+      text-align: center;
+      text-shadow: 4px 4px 4px blue;
+
+    }
+    body{
+      background-color: black;
+    }
+
+  </style>
+  <script type="text/javascript">
+    function Init () {
+         var textarea = document.getElementById ("textarea");
+
+         if (textarea.addEventListener) {    // all browsers except IE before version 9
+             textarea.addEventListener ("input", OnInput, false);
+                 // Google Chrome and  Safari
+             textarea.addEventListener ("textInput", OnTextInput, false);
+                 // Internet Explorer from version 9
+             textarea.addEventListener ("textinput", OnTextInput, false);
+         }
+
+         if (textarea.attachEvent) { // Internet Explorer and Opera
+             textarea.attachEvent ("onpropertychange", OnPropChanged);   // Internet Explorer
+         }
+     }
+
+         // Google Chrome, Safari and Internet Explorer from version 9
+     function OnTextInput (event) {
+         alert ("The following text has been entered: " + event.data);
+     }
+         // Firefox, Google Chrome, Opera, Safari from version 5, Internet Explorer from version 9
+     function OnInput (event) {
+         alert ("The new content: " + event.target.value);
+     }
+         // Internet Explorer
+     function OnPropChanged (event) {
+         if (event.propertyName.toLowerCase () == "value") {
+             alert ("The new content: " + event.srcElement.value);
+         }
+     }
+     function AtoU () {
+       var dnain = document.getElementsById("dna");
+       var dna = dnain.value;
+        if (dna.addEventListener){
+          dna.addEventListener ("input", OnInput, false);
+        }
+        if (document.getElementsById("dna").value = "Mr. Corkhill"){
+          alert ("The Key To Success is HOMEOSTASIS");
+        }
+          else {
+          alert ("You just entereed: " + dna);
+        }
+       function OnInput(event) {
+         alert ("You just entereed: " + dna);
+         }
+       }
+     }
+  </script>
+  <head>
+    <h1 class="text">DNA -> RNA -> Protein<br>Synthesizer</h1>
+  </head>
+  <body>
+    <p class="text">Enter DNA String Here: <br>(ONLY 'A' 'C' 'T' or 'G' will be recognized)</p>
+    <!--<textarea id='textarea' placeholder="ATGCAGCT"></textarea>-->
+    <input name="DNA" type="text" id="dna" value="" placeholder="ACTG" size="50">
+    <p class="text">Alternatively,<br>Enter RNA String Here: <br>(ONLY 'U' 'C' 'T' or 'G' will be recognized)</p>
+    <!--<textarea id='textarea' placeholder="UTGCUGCT"></textarea>-->
+    <input name="RNA" type="text" id="rna" value="" placeholder="UCTG" size="50">
+    <p class="text">Your Resulting Amino Acids Are:</p>
+    <input type="submit" value="Synthesize!" class="btn" title="Fill in the blanks"><br>
+    <input type="reset" value="Reset" class="btn" title="Fill in the blanks" >
+  </body>
+</html>
